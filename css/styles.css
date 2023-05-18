@@ -13,6 +13,8 @@
   --accent-color-light: #e7e9fc;
   --white-bg: #ffffff;
   --dark-bg: #2e2f42;
+  --transition-duration-and-func: 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list {
@@ -122,6 +124,10 @@ body {
   color: var(--secondary-text-color-light);
 }
 
+.nav-item {
+  position: relative;
+}
+
 .nav-link {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -130,11 +136,34 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--secondary-text-color-dark);
+
+  transition: color
+    var(--transition-duration-and-func);
 }
 
 .nav-link:active,
 .nav-link:hover,
 .nav-link:focus {
+  color: var(--button-color-pressed);
+}
+
+.nav-link::after {
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--button-color-pressed);
+  visibility: hidden;
+}
+
+.active .nav-link::after {
+  visibility: visible;
+}
+
+.active .nav-link {
   color: var(--button-color-pressed);
 }
 
@@ -157,6 +186,9 @@ body {
   line-height: 24px;
   letter-spacing: 0.02em;
   color: var(--primary-text-color-dark);
+
+  transition: color
+    var(--transition-duration-and-func);
 }
 
 .contact-item-link:hover,
@@ -218,6 +250,9 @@ body {
   letter-spacing: 0.04em;
   color: var(--primary-text-color-light);
   background-color: var(--brand-primary-color);
+
+  transition: background-color
+    var(--transition-duration-and-func);
 }
 
 .hero-button:hover,
@@ -364,6 +399,9 @@ body {
   height: 40px;
   background-color: var(--brand-primary-color);
   border-radius: 50%;
+
+  transition: background-color
+    var(--transition-duration-and-func);
 }
 
 .social-icon-link:hover,
@@ -388,6 +426,11 @@ body {
   align-items: center;
   color: #8e8f99;
   fill: #8e8f99;
+
+  transition: color
+      var(--transition-duration-and-func),
+    fill var(--transition-duration-and-func),
+    border var(--transition-duration-and-func);
 }
 
 .customers-list-link:hover,
@@ -416,6 +459,9 @@ body {
   fill: var(--brand-secondary-color);
   width: 40px;
   height: 40px;
+
+  transition: background-color
+    var(--transition-duration-and-func);
 }
 
 .social-links-footer .social-icon-link:hover,
@@ -488,6 +534,12 @@ body {
   letter-spacing: 0.04em;
   color: var(--brand-primary-color);
   background-color: var(--brand-secondary-color);
+
+  transition: background-color
+      var(--transition-duration-and-func),
+    color var(--transition-duration-and-func),
+    border var(--transition-duration-and-func),
+    box-shadow var(--transition-duration-and-func);
 }
 
 .filter-button:hover,
@@ -513,6 +565,9 @@ body {
 
 .project-card-link {
   display: block;
+
+  transition: box-shadow
+    var(--transition-duration-and-func);
 }
 
 .project-card-link:hover,
@@ -530,4 +585,88 @@ body {
   background-color: var(--white-bg);
   border: 1px solid var(--accent-color-light);
   border-top: none;
+}
+
+.project-card-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card-overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 40px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--brand-primary-color);
+  color: var(--brand-secondary-color);
+  overflow: auto;
+  transform: translateY(100%);
+  transition: transform
+    var(--transition-duration-and-func);
+}
+
+.project-card-link:hover
+  .project-card-overlay-text {
+  transform: translateY(0);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition: visibility
+      var(--transition-duration-and-func),
+    opacity var(--transition-duration-and-func),
+    pointer-events
+      var(--transition-duration-and-func);
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 408px;
+  height: 576px;
+  background-color: #fcfcfc;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.close-icon {
+  fill: var(--secondary-text-color-dark);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color-light);
+  padding-left: 0;
+  padding-right: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }
