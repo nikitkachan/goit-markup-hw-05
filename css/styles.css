@@ -428,11 +428,10 @@ body {
   color: #8e8f99;
   fill: #8e8f99;
 
-  transition: color
+  transition: border-color
       var(--transition-duration-and-func),
-    fill var(--transition-duration-and-func),
-    border-color
-      var(--transition-duration-and-func);
+    color var(--transition-duration-and-func),
+    fill var(--transition-duration-and-func);
 }
 
 .customers-list-link:hover,
@@ -616,9 +615,8 @@ body {
     var(--transition-duration-and-func);
 }
 
-.project-card-link:focus,
-.project-card-link:hover
-  .project-card-overlay-text {
+.project-card:hover .project-card-overlay-text,
+.project-card:focus .project-card-overlay-text {
   transform: translateY(0);
 }
 
@@ -658,6 +656,11 @@ body {
     0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   transition: transform
+    var(--transition-duration-and-func);
+}
+
+.client-icon {
+  transition: fill
     var(--transition-duration-and-func);
 }
 
