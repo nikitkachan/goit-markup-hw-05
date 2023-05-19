@@ -177,6 +177,7 @@ body {
   display: flex;
   gap: 40px;
   align-items: center;
+  justify-content: end;
 }
 
 .contact-item-link {
@@ -195,10 +196,6 @@ body {
 .contact-item-link:hover,
 .contact-item-link:focus {
   color: var(--button-color-pressed);
-}
-
-.contact-mail {
-  margin-left: auto;
 }
 
 /* hero */
