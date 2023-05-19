@@ -427,8 +427,7 @@ body {
 
   transition: border-color
       var(--transition-duration-and-func),
-    color var(--transition-duration-and-func),
-    fill var(--transition-duration-and-func);
+    color var(--transition-duration-and-func);
 }
 
 .customers-list-link:hover,
@@ -631,9 +630,7 @@ body {
   pointer-events: all;
   transition: visibility
       var(--transition-duration-and-func),
-    opacity var(--transition-duration-and-func),
-    pointer-events
-      var(--transition-duration-and-func);
+    opacity var(--transition-duration-and-func);
 }
 
 .is-hidden {
@@ -678,8 +675,7 @@ body {
   border-radius: 50%;
   transition: background-color
       var(--transition-duration-and-func),
-    border var(--transition-duration-and-func),
-    fill var(--transition-duration-and-func);
+    border var(--transition-duration-and-func);
 }
 
 .modal-close-button:hover,
