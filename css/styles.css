@@ -615,8 +615,10 @@ body {
     var(--transition-duration-and-func);
 }
 
-.project-card:hover .project-card-overlay-text,
-.project-card:focus .project-card-overlay-text {
+.project-card-link:hover
+  .project-card-overlay-text,
+.project-card-link:focus
+  .project-card-overlay-text {
   transform: translateY(0);
 }
 
@@ -659,7 +661,7 @@ body {
     var(--transition-duration-and-func);
 }
 
-.client-icon {
+.close-icon {
   transition: fill
     var(--transition-duration-and-func);
 }
